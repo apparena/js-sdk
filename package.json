@@ -1,6 +1,6 @@
 {
-  "name": "js-sdk",
-  "version": "0.1.0",
+  "name": "apparena-js-sdk",
+  "version": "0.2.0",
   "description": "App-Arena SDK to connect to App-Manager",
   "main": "aa-sdk.js",
   "scripts": {
