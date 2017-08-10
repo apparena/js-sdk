@@ -1,10 +1,10 @@
 # App-Arena JavaScript SDK
 
 ## Usage
-`$ yarn add ...`
+`$ yarn add apparena-js-sdk `
 
 ``` javascript 2016
-import AppManager from './sdk';
+import AppManager from 'apparena-js-sdk';
 
 var am = new AppManager({appId: 10012, apiKey: '...xqE7fLdJGybEgiEdawxNZE...'});
 var myApp = am.primaryEntity;

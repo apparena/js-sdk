@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/apparena/js-sdk"
   },
   "author": "App-Arena GmbH",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://www.app-arena.com"
   },
   "homepage": "",
   "devDependencies": {
