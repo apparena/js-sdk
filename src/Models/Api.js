@@ -24,7 +24,6 @@ export default class Api {
      * @param params Additional paramater for the request
      *
      * @return promise
-     * TODO @throws \Exception Authorization failed exception
      */
     get(route, params = {}) {
         params.Authorization = this._apiKey;

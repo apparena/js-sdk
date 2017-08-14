@@ -4,7 +4,7 @@
   "description": "App-Arena SDK to connect to App-Manager",
   "main": "dist/aa-sdk.js",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
     "build:watch": "webpack --watch --config build/webpack.config.js",

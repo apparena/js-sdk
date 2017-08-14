@@ -2,9 +2,12 @@ import {EntityUnknownError, UnexpectedApiResponseError, ConfigKeyUnknownError, A
 
 export default class AbstractEntity {
     constructor(entityId, entityCollectionPath, entityTypeName) {
-        if (new.target === AbstractEntity) {
+        // TODO: find UglifyJs compatible solution to forbid instantiation ob abstract class.
+        /*
+        if (new . target === AbstractEntity) {
             throw new TypeError('Cannot construct Abstract instances directly');
         }
+        */
         this._entityId = entityId;
         this._entityCollectionPath = entityCollectionPath;
         this._entityTypeName = entityTypeName;
