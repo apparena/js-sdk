@@ -1,10 +1,10 @@
 {
   "name": "apparena-js-sdk",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "App-Arena SDK to connect to App-Manager",
-  "main": "aa-sdk.js",
+  "main": "dist/aa-sdk.js",
   "files": [
-    "dist/"
+    "dist"
   ],
   "scripts": {
     "build:watch": "webpack --watch --config build/webpack.config.js",
