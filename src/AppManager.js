@@ -1,6 +1,8 @@
 import Api from './Models/Api';
-import {App, Template, Version} from './Models/Entities';
-import {MissingArgumentError} from './Exceptions';
+import App from './Models/Entities/App';
+import Template from './Models/Entities/Template';
+import Version from './Models/Entities/Version';
+import MissingArgumentError from './Exceptions/MissingArgumentError';
 
 export default class AppManager {
     /**
@@ -77,7 +79,6 @@ export default class AppManager {
      * request.
      *
      * @return AbstractEntity Entity object to get information for
-     * @throws \InvalidArgumentException Throws an exception, when no Entity ID is available
      */
     getPrimaryEntity() {
         let primaryEntity;

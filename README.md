@@ -1,8 +1,11 @@
 # App-Arena JavaScript SDK
 
 ## Usage
-`$ yarn add apparena-js-sdk `
+First install the SDK in your Node.js-app rootfolder:  
+`$ yarn add apparena-js-sdk ` or `$ npm install apparena-js-sdk --save`
 
+
+To connect to the AppManager in your App, simply instantiate a AppManager-object as in the following example:
 ``` javascript 2016
 import AppManager from 'apparena-js-sdk';
 

@@ -1,16 +1,13 @@
 {
   "name": "apparena-js-sdk",
-  "version": "0.2.8",
+  "version": "0.2.15",
   "description": "App-Arena SDK to connect to App-Manager",
-  "main": "dist/aa-sdk.js",
-  "files": [
-    "dist/aa-sdk.js",
-    "dist/aa-sdk.min.js"
-  ],
+  "main": "dist/AppManager",
   "scripts": {
     "build:watch": "webpack --watch --config build/webpack.config.js",
     "build:dev": "webpack --config build/webpack.config.js",
-    "build:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js"
+    "build:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js",
+    "build": "babel -s inline -d lib src"
   },
   "repository": {
     "type": "git",
@@ -36,6 +33,7 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "babel-cli": "^6.24.1"
   }
 }

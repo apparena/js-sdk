@@ -29,11 +29,9 @@ export default class Api {
         params.Authorization = this._apiKey;
         let promise = this._axios.get(route, params);
         promise.then((response) => {
-            console.log('response', response);
             //TODO: try to request from cache
             if (response && response.status === 200) {
                 //TODO: save to cache
-                console.info('API get response', response);
             }
         });
         return promise;

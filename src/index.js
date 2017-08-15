@@ -1,1 +1,2 @@
-export {default as AppManager} from './AppManager';
+import AppManager from './AppManager';
+export default AppManager;

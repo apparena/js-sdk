@@ -6,9 +6,12 @@ const isProduction = !!((argv.env && argv.env.production) || argv.p || process.e
 
 const config = {
     entry: './src/index.js',
+    target: 'web',
     output: {
-        filename: 'aa-sdk.js',
-        path: path.resolve(__dirname, '../dist')
+        filename: 'AppManager.js',
+        path: path.resolve(__dirname, '../dist'),
+        libraryTarget: 'umd',
+        library: 'AppManager'
     },
     module: {
         rules: [
@@ -38,7 +41,7 @@ const config = {
 };
 
 if (isProduction) {
-    config.output.filename = 'aa-sdk.min.js';
+    config.output.filename = 'AppManager.min.js';
     config.plugins = [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
