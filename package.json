@@ -7,7 +7,8 @@
     "build:watch": "webpack --watch --config build/webpack.config.js",
     "build:dev": "webpack --config build/webpack.config.js",
     "build:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js",
-    "build": "babel -s inline -d lib src"
+    "build": "babel -s inline -d lib src",
+    "test": "ava tests"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "",
   "devDependencies": {
+    "ava": "^0.22.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
@@ -35,5 +37,11 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-cli": "^6.24.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
