@@ -1,13 +1,14 @@
 {
   "name": "apparena-js-sdk",
-  "version": "0.2.15",
+  "version": "0.2.17",
   "description": "App-Arena SDK to connect to App-Manager",
-  "main": "dist/AppManager",
+  "main": "lib/index",
   "scripts": {
-    "build:watch": "webpack --watch --config build/webpack.config.js",
-    "build:dev": "webpack --config build/webpack.config.js",
-    "build:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js",
-    "build": "babel -s inline -d lib src"
+    "build:client:watch": "webpack --watch --config build/webpack.config.js",
+    "build:client:dev": "webpack --config build/webpack.config.js",
+    "build:client:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js",
+    "build:lib": "babel -s inline -d lib src",
+    "build": "npm run build:lib && npm run build:client:prod && npm run build:client:dev"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,11 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "babel-cli": "^6.24.1"
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-dev-warning": "^0.1.0",
+    "babel-plugin-transform-replace-object-assign": "^0.2.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "simple-assign": "^0.1.0"
   }
 }
