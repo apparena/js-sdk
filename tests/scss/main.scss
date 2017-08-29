@@ -1,0 +1,10 @@
+@import "_importMe";
+
+.class {
+    margin: 100%;
+    background-color: $someColor;
+    .sub-class {
+        padding: 120px;
+        color: darken($color2, 20%);
+    }
+}

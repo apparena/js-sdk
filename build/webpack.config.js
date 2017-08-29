@@ -6,7 +6,7 @@ const isProduction = !!((argv.env && argv.env.production) || argv.p || process.e
 
 const config = {
     entry: './src/index.js',
-    target: 'web',
+    target: 'node',
     output: {
         filename: 'AppManager.js',
         path: path.resolve(__dirname, '../dist'),

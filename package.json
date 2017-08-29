@@ -8,7 +8,8 @@
     "build:dev": "webpack --config build/webpack.config.js",
     "build:prod": "cross-env NODE_ENV='production' webpack -p --config build/webpack.config.js",
     "build": "babel -s inline -d lib src",
-    "test": "ava tests"
+    "test": "ava tests",
+    "test:coverage": "nyc ava tests"
   },
   "repository": {
     "type": "git",
@@ -25,18 +26,24 @@
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "cross-env": "^5.0.5",
     "eslint": "^4.4.1",
     "eslint-loader": "^1.9.0",
     "minimist": "^1.2.0",
+    "nyc": "^11.1.0",
     "webpack": "^3.4.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.104.0",
     "axios": "^0.16.2",
-    "babel-cli": "^6.24.1"
+    "babel-cli": "^6.24.1",
+    "node-sass": "^4.5.3"
   },
   "ava": {
     "require": [
