@@ -1,5 +1,5 @@
 import AppManager from './AppManager';
-import CSSPreprocessor from './Models/CSSPreprocessor';
+import SCSSPreprocessor from './Models/SCSSPreprocessor';
 
 export default AppManager;
-export {CSSPreprocessor};
+export {SCSSPreprocessor};

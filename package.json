@@ -43,7 +43,8 @@
     "aws-sdk": "^2.104.0",
     "axios": "^0.16.2",
     "babel-cli": "^6.24.1",
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "redis": "^2.8.0"
   },
   "ava": {
     "require": [

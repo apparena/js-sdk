@@ -1,7 +1,25 @@
 import test from 'ava';
 import AppManager from '../src/';
 import App from '../src/Models/Entities/App';
-import {CSSPreprocessor} from '../src/';
+import {SCSSPreprocessor} from '../src/';
+import fs from 'fs';
+import path from 'path';
+
+test.beforeEach(t => {
+    let items;
+    const dir = 'tests/css';
+
+    try {
+        items = fs.readdirSync(dir);
+    } catch (err) {
+        fs.mkdirSync(dir);
+    }
+
+    items.forEach(item => {
+        item = path.join(dir, item);
+        fs.unlinkSync(item);
+    });
+});
 
 test('initialization', t => {
     const am = new AppManager({
@@ -44,8 +62,8 @@ test('throws an error when no api key is present', t => {
 });
 
 test('compiles scss', t => {
-    const cssp = new CSSPreprocessor();
-    const css = cssp.compileSCSS(`
+    const cssp = new SCSSPreprocessor();
+    const css = cssp.processSCSS(`
     .class {
         margin: 100%;
         .sub-class {
@@ -61,9 +79,10 @@ test('compiles scss', t => {
     t.true((css.match(/\.class[^{]/g) || []).length === 1);
 });
 
-test('compiles scss files', t => {
-    const cssp = new CSSPreprocessor();
-    const css = cssp.compileSCSSFile('tests/scss/main.scss');
+test('compiles scss files', async t => {
+    const cssp = new SCSSPreprocessor();
+    const processed = await cssp.processSCSSFile('tests/scss/main.scss', 'tests/css');
+    const css = processed[processed.type];
 
     t.true(css.includes('.class{'));
     t.true(css.includes('.class .sub-class{'));
@@ -75,13 +94,14 @@ test('compiles scss files', t => {
     t.true((css.match(/@import/g) || []).length === 0);
 });
 
-test('compiles scss files with variable override', t => {
-    const cssp = new CSSPreprocessor();
+test('compiles scss files with variable override', async t => {
+    const cssp = new SCSSPreprocessor();
     cssp.addVariables({
         someColor: '#FACADE',
         color2: 'white',
     });
-    const css = cssp.compileSCSSFile('tests/scss/main.scss');
+    const processed = await cssp.processSCSSFile('tests/scss/main.scss', 'tests/css');
+    const css = processed[processed.type];
 
     t.true(css.includes('.class{'));
     t.true(css.includes('.class .sub-class{'));
@@ -93,15 +113,3 @@ test('compiles scss files with variable override', t => {
     t.true((css.match(/color:#ccc/g) || []).length === 1);
     t.true((css.match(/@import/g) || []).length === 0);
 });
-
-/*
-test('initialize S3', t => {
-    const cssPreprocessor = new CSSPreprocessor('AKIAJQGC43NMMCTYTC4Q', 'l96TMlHDONgfp/bPMu7cSNSUbVFpT9ih2ghYcaJC');
-    console.log("yes");
-    let i = 0, j = 0;
-    for(; i < 1024 * 1024 * 1024; ++i)
-        j += i;
-
-    console.log("okay", j);
-    cssPreprocessor.getbuckets();
-});*/
